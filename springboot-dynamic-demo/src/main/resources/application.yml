@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    username: root
+    password: 123456
+    url: jdbc:mysql://localhost:3306/platform?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.jdbc.Driver
+
+mybatis:
+  mapper-locations: classpath:mapper/*Mapper.xml
+  type-aliases-package: com.example.entity
+  config-location: classpath:mybatis-config.xml
+#showSql
+logging:
+  level:
+    com:
+      example:
+        mapper : debug
+swagger:
+  basePackage: com.rdpass.dynamic.demo.controller
+
+dynamic:
+  jar: file:D:\\source\\github\\springboot-dynamic\\springboot-dynamic-demo-ext\\target\\springboot-dynamic-demo-ext-1.0.0-BASE-SNAPSHOT.jar
+  swagger:
+    doc:
+      package: com.rdpaas.demo.ext.controller
