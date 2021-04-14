@@ -281,6 +281,10 @@ public class ModuleApplication {
             unModList.setAccessible(true);
             List<DocumentationPlugin> modifyerList = (List<DocumentationPlugin>) unModList.get(dockets);
             /**
+             * 清掉已经存在的dynamic分组
+             */
+            removeGroup(modifyerList,"dynamic");
+            /**
              * 这下老实了吧，把自己的Docket加入进去，这里的groupName为dynamic
              */
             modifyerList.add(createRestApi(extSwaggerDocPackage));
@@ -307,6 +311,21 @@ public class ModuleApplication {
                 //为当前包路径
                 .apis(RequestHandlerSelectors.basePackage(basePackage)).paths(PathSelectors.any()).build();
         return docket;
+    }
+
+    /**
+     * 删除集合中指定group
+     * @param dockets
+     * @param groupName
+     */
+    private void removeGroup(List<DocumentationPlugin> dockets, String groupName) {
+        List<DocumentationPlugin> deletingPlugins = new ArrayList<>();
+        for(DocumentationPlugin docket:dockets) {
+            if(docket.getGroupName().equals(groupName)) {
+                deletingPlugins.add(docket);
+            }
+        }
+        dockets.removeAll(deletingPlugins);
     }
 
     /**

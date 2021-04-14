@@ -22,7 +22,7 @@ swagger:
   basePackage: com.rdpass.dynamic.demo.controller
 
 dynamic:
-  jar: file:D:\\source\\github\\springboot-dynamic\\springboot-dynamic-demo-ext\\target\\springboot-dynamic-demo-ext-1.0.0-BASE-SNAPSHOT.jar
+  jar: file:C:\\src\\source\\github_src\\springboot-dynamic\\springboot-dynamic-demo-ext\\target\\springboot-dynamic-demo-ext-1.0.0-BASE-SNAPSHOT.jar
   swagger:
     doc:
       package: com.rdpaas.demo.ext.controller
