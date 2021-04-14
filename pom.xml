@@ -64,16 +64,19 @@
 
     <repositories>
         <repository>
-            <id>deepexi-central</id>
-            <name>public Repository</name>
-            <url>http://nexus.deepexi.top/repository/maven-public/</url>
+            <id>central</id>
+            <name>aliyun maven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <layout>default</layout>
+            <!-- 是否开启发布版构件下载 -->
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <!-- 是否开启快照版构件下载 -->
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
         </repository>
     </repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>deepexi-plugin-central</id>
-            <url>http://nexus.deepexi.top/repository/maven-public/</url>
-        </pluginRepository>
-    </pluginRepositories>
 </project>

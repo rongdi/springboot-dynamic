@@ -44,6 +44,8 @@ public class ModuleApplication {
 
     private final static String SINGLETON = "singleton";
 
+    private final static String DYNAMIC = "dynamic";
+
     private final static String DYNAMIC_DOC_PACKAGE = "dynamic.swagger.doc.package";
 
     private Set<RequestMappingInfo> extMappingInfos = new HashSet<>();
@@ -283,7 +285,7 @@ public class ModuleApplication {
             /**
              * 清掉已经存在的dynamic分组
              */
-            removeGroup(modifyerList,"dynamic");
+            removeGroup(modifyerList,DYNAMIC);
             /**
              * 这下老实了吧，把自己的Docket加入进去，这里的groupName为dynamic
              */
@@ -303,7 +305,7 @@ public class ModuleApplication {
         List<ResponseMessage> responseMessageList = new ArrayList<>();
         responseMessageList.add(new ResponseMessageBuilder().code(200).message("成功").responseModel(new ModelRef("Payload")).build());
         Docket docket = new Docket(DocumentationType.SWAGGER_2)
-                .groupName("dynamic")
+                .groupName(DYNAMIC)
                 .globalResponseMessage(RequestMethod.GET,responseMessageList)
                 .globalResponseMessage(RequestMethod.DELETE,responseMessageList)
                 .globalResponseMessage(RequestMethod.POST,responseMessageList)
